@@ -98,7 +98,6 @@ namespace ImageResizer
                     //ShowDebugInfo(index, 1, String.Format("{0:D2}", Thread.CurrentThread.ManagedThreadId), "<<<<", "");
                 });
 
-
                 i++;
             }
             Task.WaitAll(tasks);
@@ -208,30 +207,5 @@ namespace ImageResizer
                 Console.ForegroundColor = orig;
             }
         }
-
     }
-
-    public static class Tool
-    {
-        /// <summary>
-        /// 使用異步遍歷處理數據
-        /// </summary>
-        /// <typeparam name="T">需要遍歷的基類</typeparam>
-        /// <param name="list">集合</param>
-        /// <param name="func">Lambda表達式</param>
-        /// <returns></returns>
-        public static async Task ForEachAsync<T>(this List<T> list, Func<T, Task> func)
-        {
-            foreach (T value in list)
-            {
-
-                await func(value);
-            }
-        }
-
-
-
-
-    }
-
 }
